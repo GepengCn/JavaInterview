@@ -161,3 +161,99 @@ https://github.com/Snailclimb/JavaGuide/blob/master/Java%E7%9B%B8%E5%85%B3/Java%
 
 - 引用
 https://www.cnblogs.com/aquarius-bear/p/3939939.html
+
+### 线程基本状态
+
+![Alt text][thread_status]
+1. 新建
+
+用new语句创建的线程对象处于新建状态，此时它和其他java对象一样，仅被分配了内存。
+
+2. 等待
+
+当线程在new之后，并且在调用start方法前，线程处于等待状态。
+
+3. 就绪
+
+当一个线程对象创建后，其他线程调用它的start()方法，该线程就进入就绪状态。处于这个状态的线程位于Java虚拟机的可运行池中，等待cpu的使用权。
+
+4. 运行状态
+
+处于这个状态的线程占用CPU，执行程序代码。在并发运行环境中，如果计算机只有一个CPU，那么任何时刻只会有一个线程处于这个状态。
+
+只有处于就绪状态的线程才有机会转到运行状态。
+
+5. 阻塞状态
+
+阻塞状态是指线程因为某些原因放弃CPU，暂时停止运行。当线程处于阻塞状态时，Java虚拟机不会给线程分配CPU，直到线程重新进入就绪状态，它才会有机会获得运行状态
+```
+阻塞状态分为三种:
+
+1、等待阻塞:运行的线程执行wait（）方法，JVM会把该线程放入等待池中。
+
+2、同步阻塞:运行的线程在获取对象同步锁时，若该同步锁被别的线程占用，则JVM会把线程放入锁池中。
+
+3、其他阻塞:运行的线程执行Sleep（）方法，或者发出I/O请求时，JVM会把线程设为阻塞状态。当Sleep（）状态超时、或者I/O处理完毕时，线程重新转入就绪状态。
+```
+6.死亡状态
+
+当线程执行完run()方法中的代码，或者遇到了未捕获的异常，就会退出run()方法，此时就进入死亡状态，该线程结束生命周期。
+
+### 异常与错误
+
+1. 异常分类
+![Alt text][threerrorAndExceptionad_status]
+
+<p>可以看出，所有的异常都是由Throwable类，下一层分解为两个分支：Error和Exceprion。</p> 
+<p>Error层次结构描述了java运行时系统的内部错误和资源耗尽错误。大多数错误与代码编写者执行的操作无关，而表示代码运行时 JVM（Java 虚拟机）出现的问题。应用程序不应该抛出这种类型的对象。</p> 
+<p>Exceprion这个层次结构又分解为连个分支：一个分支派生于RuntimeException；另一个分支包含其他异常。划分两个分支的规则是：由程序错误导致的异常属于RuntimeException；而程序本身没有没有问题，但由于像I/O错误这类异常导致的异常属于其他异常。</p> 
+
+```
+常见的RuntimeException（运行时异常）： 
+IndexOutOfBoundsException(下标越界异常) 
+NullPointerException(空指针异常) 
+NumberFormatException （String转换为指定的数字类型异常） 
+ArithmeticException -（算术运算异常 如除数为0） 
+ArrayStoreException - （向数组中存放与声明类型不兼容对象异常） 
+SecurityException -（安全异常） 
+IOException（其他异常） 
+FileNotFoundException（文件未找到异常。） 
+IOException（操作输入流和输出流时可能出现的异常。） 
+EOFException （文件已结束异常）
+```
+
+2. 概念理解
+> 首先明白下面的两个概念 
+<p>unchecked exception（非检查异常）：包括运行时异常（RuntimeException）和派生于Error类的异常。对于运行时异常，java编译器不要求必须进行异常捕获处理或者抛出声明，由程序员自行决定。</p> 
+<p>checked exception（检查异常，编译异常，必须要处理的异常） 
+也：称非运行时异常（运行时异常以外的异常就是非运行时异常），java编译器强制程序员必须进行捕获处理，比如常见的IOExeption和SQLException。对于非运行时异常如果不进行捕获或者抛出声明处理，编译都不会通过。</p>
+
+3. 异常处理与实际使用
+
+`https://blog.csdn.net/m0_37531231/article/details/79502778`
+
+
+### String、StringBuffer与StringBuilder
+
+> 这三个类之间的区别主要是在两个方面，即运行速度和线程安全这两方面。
+
+1. 首先说运行速度，或者说是执行速度，在这方面运行速度快慢为：StringBuilder > StringBuffer > String
+
+<p>String最慢的原因：</p>
+
+<p>String为字符串常量，而StringBuilder和StringBuffer均为字符串变量，即String对象一旦创建之后该对象是不可更改的，但后两者的对象是变量，是可以更改的。</p>
+
+2.  再来说线程安全
+
+在线程安全上，StringBuilder是线程不安全的，而StringBuffer是线程安全的
+
+3. 总结一下
+
+<p>String：适用于少量的字符串操作的情况</p>
+
+<p>StringBuilder：适用于单线程下在字符缓冲区进行大量操作的情况</p>
+
+<p>StringBuffer：适用多线程下在字符缓冲区进行大量操作的情况</p>
+[thread_status]:https://github.com/GepengCn/JavaInterview/blob/master/resources/thread_status.jpg
+
+[errorAndException]:https://github.com/GepengCn/JavaInterview/blob/master/resources/errorAndException.jpeg
