@@ -202,7 +202,8 @@ https://www.cnblogs.com/aquarius-bear/p/3939939.html
 ### 异常与错误
 
 1. 异常分类
-![Alt text][threerrorAndExceptionad_status]
+
+![Alt text][thread_status]
 
 <p>可以看出，所有的异常都是由Throwable类，下一层分解为两个分支：Error和Exceprion。</p> 
 <p>Error层次结构描述了java运行时系统的内部错误和资源耗尽错误。大多数错误与代码编写者执行的操作无关，而表示代码运行时 JVM（Java 虚拟机）出现的问题。应用程序不应该抛出这种类型的对象。</p> 
