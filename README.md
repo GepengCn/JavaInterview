@@ -203,7 +203,7 @@ https://www.cnblogs.com/aquarius-bear/p/3939939.html
 
 1. 异常分类
 
-![Alt text][thread_status]
+![Alt text][errorAndException]
 
 <p>可以看出，所有的异常都是由Throwable类，下一层分解为两个分支：Error和Exceprion。</p> 
 <p>Error层次结构描述了java运行时系统的内部错误和资源耗尽错误。大多数错误与代码编写者执行的操作无关，而表示代码运行时 JVM（Java 虚拟机）出现的问题。应用程序不应该抛出这种类型的对象。</p> 
@@ -255,6 +255,6 @@ EOFException （文件已结束异常）
 <p>StringBuilder：适用于单线程下在字符缓冲区进行大量操作的情况</p>
 
 <p>StringBuffer：适用多线程下在字符缓冲区进行大量操作的情况</p>
-[thread_status]:https://github.com/GepengCn/JavaInterview/blob/master/resources/thread_status.jpg
+[thread_status]:https://github.com/GepengCn/JavaInterview/blob/master/resources/thread_status.jpg?raw=true
 
-[errorAndException]:https://github.com/GepengCn/JavaInterview/blob/master/resources/errorAndException.jpeg
+[errorAndException]:https://github.com/GepengCn/JavaInterview/blob/master/resources/errorAndException.jpeg?raw=true
