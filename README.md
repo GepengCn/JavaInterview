@@ -255,6 +255,7 @@ EOFException （文件已结束异常）
 <p>StringBuilder：适用于单线程下在字符缓冲区进行大量操作的情况</p>
 
 <p>StringBuffer：适用多线程下在字符缓冲区进行大量操作的情况</p>
+
 [thread_status]:https://github.com/GepengCn/JavaInterview/blob/master/resources/thread_status.jpg?raw=true
 
 [errorAndException]:https://github.com/GepengCn/JavaInterview/blob/master/resources/errorAndException.jpeg?raw=true
