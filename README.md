@@ -271,8 +271,6 @@ main()方法是一个典型的静态方法，它同样遵循一般静态方法�
 
 ### Servlet生命周期
 
-![Alt text][servlet_life]
-
 `https://www.cnblogs.com/fifiyong/p/6390805.html`
 
 
