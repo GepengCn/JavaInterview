@@ -257,8 +257,45 @@ EOFException （文件已结束异常）
 
 <p>StringBuffer：适用多线程下在字符缓冲区进行大量操作的情况</p>
 
-<!--
+
+
+### 静态方法与实例方法
+```
+静态方法只能访问静态成员，实例方法可以访问静态和实例成员。
+之所以不允许静态方法访问实例成员变量，是因为实例成员变量是属于某个对象的，而静态方法在执行时，并不一定存在对象。
+同样，因为实例方法可以访问实例成员变量，如果允许静态方法调用实例方法，将间接地允许它使用实例成员变量，所以它也不能调用实例方法。
+基于同样的道理，静态方法中也不能使用关键字this。
+ 
+main()方法是一个典型的静态方法，它同样遵循一般静态方法的规则，所以它可以由系统在创建对象之前就调用。
+```
+
+### Servlet生命周期
+
+![Alt text][servlet_life]
+
+`https://www.cnblogs.com/fifiyong/p/6390805.html`
+
+
+### get和post区别
+
+`https://www.cnblogs.com/logsharing/p/8448446.html`
+
+### static 
+
+`https://www.cnblogs.com/dolphin0520/p/3799052.html`
+
+### final 
+
+`https://www.cnblogs.com/chansblogs/p/8387801.html`
+
+### this和super
+
+`http://www.runoob.com/w3cnote/the-different-this-super.html`
+
 [thread_status]:https://github.com/GepengCn/JavaInterview/blob/master/resources/thread_status.jpg?raw=true
 
 [errorAndException]:https://github.com/GepengCn/JavaInterview/blob/master/resources/errorAndException.jpeg?raw=true
--->
+
+[servlet_life]:https://github.com/GepengCn/JavaInterview/blob/master/resources/servlet_life.jpg?raw=true
+
+
