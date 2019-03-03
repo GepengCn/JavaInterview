@@ -1,7 +1,5 @@
-## Java基础
-
-### 面向对象
-
+## 面向对象
+---
 - 简单理解
 <p>面向对象和面向过程的思想有着本质上的区别, 作为面向对象的思维来说，当你拿到一个问题时，你分析这个问题不再是第一步先做什么，第二步再做什么，这是面向过程的思维，</p>
 <p>你应该分析这个问题里面有哪些类和对象，这是第一点，然后再分析这些类和对象应该具有哪些属性和方法。这是第二点。最后分析类和类之间具体有什么关系，这是第三点。</p>
@@ -25,8 +23,8 @@
 - 引用
 https://www.cnblogs.com/xdp-gacl/p/3624100.html
 
-### 面向对象和面向过程的区别
-
+## 面向对象和面向过程的区别
+---
 - 面向过程
 <p>优点： 性能比面向对象高，因为类调用时需要实例化，开销比较大，比较消耗资源;比如单片机、嵌入式开发、Linux/Unix等一般采用面向过程开发，性能是最重要的因素。</p>
 
@@ -38,8 +36,8 @@ https://www.cnblogs.com/xdp-gacl/p/3624100.html
 <p>缺点： 性能比面向过程低</p>
 
 
-### 面向对象三大特性
-
+## 面向对象三大特性
+---
 - 封装
 也就是把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。封装是面向对象的特征之一，是对象和类概念的主要特性。 简单的说，一个类就是一个封装了数据以及操作这些数据的代码的逻辑实体。在一个对象内部，某些代码或某些数据可以是私有的，不能被外界访问。通过这种方式，对象对内部数据提供了不同级别的保护，以防止程序中无关的部分意外的改变或错误的使用了对象的私有部分。
 
@@ -49,8 +47,8 @@ https://www.cnblogs.com/xdp-gacl/p/3624100.html
 就是指一个类实例的相同方法在不同情形有不同表现形式。多态机制使具有不同内部结构的对象可以共享相同的外部接口。这意味着，虽然针对不同对象的具体操作不同，但通过一个公共的类，它们（那些操作）可以通过相同的方式予以调用。
 
 
-### 五大基本原则
-
+## 五大基本原则
+---
 - 单一职责原则SRP(Single Responsibility Principle)
 是指一个类的功能要单一，不能包罗万象。如同一个人一样，分配的工作不能太多，否则一天到晚虽然忙忙碌碌的，但效率却高不起来。
 
@@ -78,8 +76,8 @@ https://www.cnblogs.com/xdp-gacl/p/3624100.html
 迪米特法则不希望类直接建立直接的接触。如果真的有需要建立联系，也希望能通过它的友元类来转达。因此，应用迪米特法则有可能造成的一个后果就是：系统中存在大量的中介类，这些类之所以存在完全是为了传递类之间的相互调用关系——这在一定程度上增加了系统的复杂度。
 有兴趣可以研究一下设计模式的门面模式（Facade）和中介模式（Mediator），都是迪米特法则应用的例子。
 
-### 重载和重写
-
+## 重载和重写
+---
 - 重载
 
     -  重载Overload是一个类中多态性的一种表现。是编译时的多态性。方法重载是让类以统一的方式处理不同类型数据的一种手段。重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载。
@@ -94,8 +92,8 @@ https://www.cnblogs.com/xdp-gacl/p/3624100.html
     - 若子类中的方法与父类中的某一方法具有相同的方法名、参数列表和兼容的返回类型，则新方法将覆盖原有的方法。如需父类中原有的方法，可使用super关键字，该关键字引用了当前类的父类。
     - 子类函数的访问修饰权限不能少于父类的。
 
-### 接口和抽象类
-
+## 接口和抽象类
+---
 - 语法层面上的区别
 
     - 抽象类可以提供成员方法的实现细节，而接口中只能存在public abstract 方法；
@@ -113,8 +111,8 @@ https://www.cnblogs.com/xdp-gacl/p/3624100.html
 - 引用
 https://www.cnblogs.com/dolphin0520/p/3811437.html
 
-### 成员变量与局部变量的区别
-
+## 成员变量与局部变量的区别
+---
 - 在类中的位置不同
 
     - 成员变量：在类中方法外面
@@ -138,8 +136,8 @@ https://www.cnblogs.com/dolphin0520/p/3811437.html
     - 成员变量：有默认初始值
 
     - 局部变量：没有默认初始值，使用之前需要赋值，否则编译器会报错（The local variable xxx may not have been initialized）
-### ==与equals
-
+## ==与equals
+---
 <p>== : 它的作用是判断两个对象的地址是不是相等。即，判断两个对象是不是同一个对象。(基本数据类型==比较的是值，引用数据类型==比较的是内存地址)</p>
 
 <p>equals() : 它的作用也是判断两个对象是否相等。但它一般有两种使用情况：</p>
@@ -147,13 +145,14 @@ https://www.cnblogs.com/dolphin0520/p/3811437.html
 - 情况1：类没有覆盖 equals() 方法。则通过 equals() 比较该类的两个对象时，等价于通过“==”比较这两个对象。
 - 情况2：类覆盖了 equals() 方法。一般，我们都覆盖 equals() 方法来两个对象的内容相等；若它们的内容相等，则返回 true (即，认为这两个对象相等)。
 
-### hashcode与equals
-
+## hashcode与equals
+---
 
 - 引用
 https://github.com/Snailclimb/JavaGuide/blob/master/Java%E7%9B%B8%E5%85%B3/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md#27-hashcode-%E4%B8%8E-equals%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89
 
-### 线程、进程与程序
+## 线程、进程与程序
+---
 - 程序只是一组指令的有序集合。
 
 - 进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动，是系统进行资源分配和调度的一个独立单位;
@@ -163,8 +162,8 @@ https://github.com/Snailclimb/JavaGuide/blob/master/Java%E7%9B%B8%E5%85%B3/Java%
 - 引用
 https://www.cnblogs.com/aquarius-bear/p/3939939.html
 
-### 线程基本状态
-
+## 线程基本状态
+---
 ![Alt text][thread_status]
 1. 新建
 
@@ -200,34 +199,34 @@ https://www.cnblogs.com/aquarius-bear/p/3939939.html
 
 当线程执行完run()方法中的代码，或者遇到了未捕获的异常，就会退出run()方法，此时就进入死亡状态，该线程结束生命周期。
 
-### 异常与错误
-
+## 异常与错误
+---
 1. 异常分类
 
 ![Alt text][errorAndException]
 
-<p>可以看出，所有的异常都是由Throwable类，下一层分解为两个分支：Error和Exceprion。</p> 
-<p>Error层次结构描述了java运行时系统的内部错误和资源耗尽错误。大多数错误与代码编写者执行的操作无关，而表示代码运行时 JVM（Java 虚拟机）出现的问题。应用程序不应该抛出这种类型的对象。</p> 
-<p>Exceprion这个层次结构又分解为连个分支：一个分支派生于RuntimeException；另一个分支包含其他异常。划分两个分支的规则是：由程序错误导致的异常属于RuntimeException；而程序本身没有没有问题，但由于像I/O错误这类异常导致的异常属于其他异常。</p> 
+<p>可以看出，所有的异常都是由Throwable类，下一层分解为两个分支：Error和Exceprion。</p>
+<p>Error层次结构描述了java运行时系统的内部错误和资源耗尽错误。大多数错误与代码编写者执行的操作无关，而表示代码运行时 JVM（Java 虚拟机）出现的问题。应用程序不应该抛出这种类型的对象。</p>
+<p>Exceprion这个层次结构又分解为连个分支：一个分支派生于RuntimeException；另一个分支包含其他异常。划分两个分支的规则是：由程序错误导致的异常属于RuntimeException；而程序本身没有没有问题，但由于像I/O错误这类异常导致的异常属于其他异常。</p>
 
 ```
-常见的RuntimeException（运行时异常）： 
-IndexOutOfBoundsException(下标越界异常) 
-NullPointerException(空指针异常) 
-NumberFormatException （String转换为指定的数字类型异常） 
-ArithmeticException -（算术运算异常 如除数为0） 
-ArrayStoreException - （向数组中存放与声明类型不兼容对象异常） 
-SecurityException -（安全异常） 
-IOException（其他异常） 
-FileNotFoundException（文件未找到异常。） 
-IOException（操作输入流和输出流时可能出现的异常。） 
+常见的RuntimeException（运行时异常）：
+IndexOutOfBoundsException(下标越界异常)
+NullPointerException(空指针异常)
+NumberFormatException （String转换为指定的数字类型异常）
+ArithmeticException -（算术运算异常 如除数为0）
+ArrayStoreException - （向数组中存放与声明类型不兼容对象异常）
+SecurityException -（安全异常）
+IOException（其他异常）
+FileNotFoundException（文件未找到异常。）
+IOException（操作输入流和输出流时可能出现的异常。）
 EOFException （文件已结束异常）
 ```
 
 2. 概念理解
-> 首先明白下面的两个概念 
-<p>unchecked exception（非检查异常）：包括运行时异常（RuntimeException）和派生于Error类的异常。对于运行时异常，java编译器不要求必须进行异常捕获处理或者抛出声明，由程序员自行决定。</p> 
-<p>checked exception（检查异常，编译异常，必须要处理的异常） 
+> 首先明白下面的两个概念
+<p>unchecked exception（非检查异常）：包括运行时异常（RuntimeException）和派生于Error类的异常。对于运行时异常，java编译器不要求必须进行异常捕获处理或者抛出声明，由程序员自行决定。</p>
+<p>checked exception（检查异常，编译异常，必须要处理的异常）
 也：称非运行时异常（运行时异常以外的异常就是非运行时异常），java编译器强制程序员必须进行捕获处理，比如常见的IOExeption和SQLException。对于非运行时异常如果不进行捕获或者抛出声明处理，编译都不会通过。</p>
 
 3. 异常处理与实际使用
@@ -235,8 +234,8 @@ EOFException （文件已结束异常）
 `https://blog.csdn.net/m0_37531231/article/details/79502778`
 
 
-### String、StringBuffer与StringBuilder
-
+## String、StringBuffer与StringBuilder
+---
 > 这三个类之间的区别主要是在两个方面，即运行速度和线程安全这两方面。
 
 1. 首先说运行速度，或者说是执行速度，在这方面运行速度快慢为：StringBuilder > StringBuffer > String
@@ -259,35 +258,36 @@ EOFException （文件已结束异常）
 
 
 
-### 静态方法与实例方法
+## 静态方法与实例方法
+---
 ```
 静态方法只能访问静态成员，实例方法可以访问静态和实例成员。
 之所以不允许静态方法访问实例成员变量，是因为实例成员变量是属于某个对象的，而静态方法在执行时，并不一定存在对象。
 同样，因为实例方法可以访问实例成员变量，如果允许静态方法调用实例方法，将间接地允许它使用实例成员变量，所以它也不能调用实例方法。
 基于同样的道理，静态方法中也不能使用关键字this。
- 
+
 main()方法是一个典型的静态方法，它同样遵循一般静态方法的规则，所以它可以由系统在创建对象之前就调用。
 ```
 
-### Servlet生命周期
-
+## Servlet生命周期
+---
 `https://www.cnblogs.com/fifiyong/p/6390805.html`
 
 
-### get和post区别
-
+## get和post区别
+---
 `https://www.cnblogs.com/logsharing/p/8448446.html`
 
-### static 
-
+## static
+---
 `https://www.cnblogs.com/dolphin0520/p/3799052.html`
 
-### final 
-
+## final
+---
 `https://www.cnblogs.com/chansblogs/p/8387801.html`
 
-### this和super
-
+## this和super
+---
 `http://www.runoob.com/w3cnote/the-different-this-super.html`
 
 [thread_status]:https://github.com/GepengCn/JavaInterview/blob/master/resources/thread_status.jpg?raw=true
@@ -295,5 +295,3 @@ main()方法是一个典型的静态方法，它同样遵循一般静态方法�
 [errorAndException]:https://github.com/GepengCn/JavaInterview/blob/master/resources/errorAndException.jpeg?raw=true
 
 [servlet_life]:https://github.com/GepengCn/JavaInterview/blob/master/resources/servlet_life.jpg?raw=true
-
-
