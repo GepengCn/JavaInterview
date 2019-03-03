@@ -1,4 +1,3 @@
-## 多线程系列文章
 1. [Java多线程学习（一）Java多线程入门](http://blog.csdn.net/qq_34337272/article/details/79640870)
 2. [Java多线程学习（二）synchronized关键字（1）](http://blog.csdn.net/qq_34337272/article/details/79655194)
 3.  [Java多线程学习（二）synchronized关键字（2）](http://blog.csdn.net/qq_34337272/article/details/79670775)
