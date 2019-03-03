@@ -1,5 +1,4 @@
 ## 面向对象
----
 - 简单理解
 <p>面向对象和面向过程的思想有着本质上的区别, 作为面向对象的思维来说，当你拿到一个问题时，你分析这个问题不再是第一步先做什么，第二步再做什么，这是面向过程的思维，</p>
 <p>你应该分析这个问题里面有哪些类和对象，这是第一点，然后再分析这些类和对象应该具有哪些属性和方法。这是第二点。最后分析类和类之间具体有什么关系，这是第三点。</p>
@@ -24,7 +23,6 @@
 https://www.cnblogs.com/xdp-gacl/p/3624100.html
 
 ## 面向对象和面向过程的区别
----
 - 面向过程
 <p>优点： 性能比面向对象高，因为类调用时需要实例化，开销比较大，比较消耗资源;比如单片机、嵌入式开发、Linux/Unix等一般采用面向过程开发，性能是最重要的因素。</p>
 
@@ -37,7 +35,6 @@ https://www.cnblogs.com/xdp-gacl/p/3624100.html
 
 
 ## 面向对象三大特性
----
 - 封装
 也就是把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。封装是面向对象的特征之一，是对象和类概念的主要特性。 简单的说，一个类就是一个封装了数据以及操作这些数据的代码的逻辑实体。在一个对象内部，某些代码或某些数据可以是私有的，不能被外界访问。通过这种方式，对象对内部数据提供了不同级别的保护，以防止程序中无关的部分意外的改变或错误的使用了对象的私有部分。
 
@@ -48,7 +45,6 @@ https://www.cnblogs.com/xdp-gacl/p/3624100.html
 
 
 ## 五大基本原则
----
 - 单一职责原则SRP(Single Responsibility Principle)
 是指一个类的功能要单一，不能包罗万象。如同一个人一样，分配的工作不能太多，否则一天到晚虽然忙忙碌碌的，但效率却高不起来。
 
@@ -77,7 +73,6 @@ https://www.cnblogs.com/xdp-gacl/p/3624100.html
 有兴趣可以研究一下设计模式的门面模式（Facade）和中介模式（Mediator），都是迪米特法则应用的例子。
 
 ## 重载和重写
----
 - 重载
 
     -  重载Overload是一个类中多态性的一种表现。是编译时的多态性。方法重载是让类以统一的方式处理不同类型数据的一种手段。重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载。
@@ -93,7 +88,6 @@ https://www.cnblogs.com/xdp-gacl/p/3624100.html
     - 子类函数的访问修饰权限不能少于父类的。
 
 ## 接口和抽象类
----
 - 语法层面上的区别
 
     - 抽象类可以提供成员方法的实现细节，而接口中只能存在public abstract 方法；
@@ -112,7 +106,6 @@ https://www.cnblogs.com/xdp-gacl/p/3624100.html
 https://www.cnblogs.com/dolphin0520/p/3811437.html
 
 ## 成员变量与局部变量的区别
----
 - 在类中的位置不同
 
     - 成员变量：在类中方法外面
@@ -137,7 +130,6 @@ https://www.cnblogs.com/dolphin0520/p/3811437.html
 
     - 局部变量：没有默认初始值，使用之前需要赋值，否则编译器会报错（The local variable xxx may not have been initialized）
 ## ==与equals
----
 <p>== : 它的作用是判断两个对象的地址是不是相等。即，判断两个对象是不是同一个对象。(基本数据类型==比较的是值，引用数据类型==比较的是内存地址)</p>
 
 <p>equals() : 它的作用也是判断两个对象是否相等。但它一般有两种使用情况：</p>
@@ -146,13 +138,11 @@ https://www.cnblogs.com/dolphin0520/p/3811437.html
 - 情况2：类覆盖了 equals() 方法。一般，我们都覆盖 equals() 方法来两个对象的内容相等；若它们的内容相等，则返回 true (即，认为这两个对象相等)。
 
 ## hashcode与equals
----
 
 - 引用
 https://github.com/Snailclimb/JavaGuide/blob/master/Java%E7%9B%B8%E5%85%B3/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md#27-hashcode-%E4%B8%8E-equals%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89
 
 ## 线程、进程与程序
----
 - 程序只是一组指令的有序集合。
 
 - 进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动，是系统进行资源分配和调度的一个独立单位;
@@ -163,7 +153,6 @@ https://github.com/Snailclimb/JavaGuide/blob/master/Java%E7%9B%B8%E5%85%B3/Java%
 https://www.cnblogs.com/aquarius-bear/p/3939939.html
 
 ## 线程基本状态
----
 ![Alt text][thread_status]
 1. 新建
 
@@ -200,7 +189,6 @@ https://www.cnblogs.com/aquarius-bear/p/3939939.html
 当线程执行完run()方法中的代码，或者遇到了未捕获的异常，就会退出run()方法，此时就进入死亡状态，该线程结束生命周期。
 
 ## 异常与错误
----
 1. 异常分类
 
 ![Alt text][errorAndException]
@@ -235,7 +223,6 @@ EOFException （文件已结束异常）
 
 
 ## String、StringBuffer与StringBuilder
----
 > 这三个类之间的区别主要是在两个方面，即运行速度和线程安全这两方面。
 
 1. 首先说运行速度，或者说是执行速度，在这方面运行速度快慢为：StringBuilder > StringBuffer > String
@@ -259,7 +246,6 @@ EOFException （文件已结束异常）
 
 
 ## 静态方法与实例方法
----
 ```
 静态方法只能访问静态成员，实例方法可以访问静态和实例成员。
 之所以不允许静态方法访问实例成员变量，是因为实例成员变量是属于某个对象的，而静态方法在执行时，并不一定存在对象。
@@ -270,24 +256,19 @@ main()方法是一个典型的静态方法，它同样遵循一般静态方法�
 ```
 
 ## Servlet生命周期
----
 `https://www.cnblogs.com/fifiyong/p/6390805.html`
 
 
 ## get和post区别
----
 `https://www.cnblogs.com/logsharing/p/8448446.html`
 
 ## static
----
 `https://www.cnblogs.com/dolphin0520/p/3799052.html`
 
 ## final
----
 `https://www.cnblogs.com/chansblogs/p/8387801.html`
 
 ## this和super
----
 `http://www.runoob.com/w3cnote/the-different-this-super.html`
 
 [thread_status]:https://github.com/GepengCn/JavaInterview/blob/master/resources/thread_status.jpg?raw=true
