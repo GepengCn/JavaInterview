@@ -158,7 +158,7 @@ public class SynchronizedDemo2 {
 
 在JDK1.6之前，`synchronized` 的性能是比 `ReenTrantLock` 差很多。
 
-具体表示为：`synchronized` 关键字吞吐量岁线程数的增加，下降得非常严重。而`ReenTrantLock` 基本保持一个比较稳定的水平。
+具体表示为：`synchronized` 关键字吞吐量随线程数的增加，下降得非常严重。而`ReenTrantLock` 基本保持一个比较稳定的水平。
 
 我觉得这也侧面反映了， `synchronized` 关键字还有非常大的优化余地。
 
