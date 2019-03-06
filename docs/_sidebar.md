@@ -14,6 +14,8 @@
     * [搞定JVM垃圾回收就是这么简单](jvm_2)
   * 主流框架
     * [Spring学习与面试](spring)
+    * [Spring Bean](spring_bean)
+    * [Spring MVC](spring_mvc)
   * Java IO与NIO
   * Java 设计模式
   * 参与项目介绍
