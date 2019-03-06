@@ -2,6 +2,7 @@
   * [Java基础](basic)
   * [Java集合](collection)
   * Java多线程
+      * [多线程基础](thread_3)
       * [synchronized 关键字使用、底层原理、JDK1.6 之后的底层优化以及 和ReenTrantLock 的对比](thread_1)
       * [乐观锁与悲观锁](thread_2)
       * [引用](thread)
