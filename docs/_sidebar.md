@@ -11,6 +11,7 @@
     * [引用](thread)
   * Java JVM
     * [可能是把Java内存区域讲的最清楚的一篇文章](jvm_1)
+    * [搞定JVM垃圾回收就是这么简单](jvm_2)
   * Java IO与NIO
   * Java 设计模式
   * 参与项目介绍
