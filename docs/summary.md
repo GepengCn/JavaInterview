@@ -104,3 +104,131 @@
 !> **谁控制谁，控制什么**：传统Java SE程序设计，我们直接在对象内部通过new进行创建对象，是程序主动去创建依赖对象；而IoC是有专门一个容器来创建这些对象，即由Ioc容器来控制对象的创建；**谁控制谁？**当然是IoC 容器控制了对象；**控制什么？**那就是主要控制了外部资源获取（不只是对象包括比如文件等）。
 
 !> **为何是反转，哪些方面反转了**：有反转就有正转，传统应用程序是由我们自己在对象中主动控制去直接获取依赖对象，也就是正转；而反转则是由容器来帮忙创建及注入依赖对象；**为何是反转？**因为由容器帮我们查找及注入依赖对象，对象只是被动的接受依赖对象，所以是反转；**哪些方面反转了？**依赖对象的获取被反转了。
+
+### 深入解析spring中用到的九种设计模式
+
+!> 第一种：简单工厂
+
+?> 又叫做静态工厂方法（StaticFactory Method）模式，但不属于23种GOF设计模式之一。 
+简单工厂模式的实质是由一个工厂类根据传入的参数，动态决定应该创建哪一个产品类。 
+spring中的BeanFactory就是简单工厂模式的体现，根据传入一个唯一的标识来获得bean对象，但是否是在传入参数后创建还是传入参数前创建这个要根据具体情况来定。
+
+如下配置，就是在 HelloItxxz 类中创建一个 itxxzBean。
+
+
+```xml
+<beans>
+    <bean id="singletonBean" class="com.itxxz.HelloItxxz">
+        <constructor-arg>
+            <value>Hello! 这是singletonBean!value>
+        </constructor-arg>
+   </ bean>
+ 
+    <bean id="itxxzBean" class="com.itxxz.HelloItxxz"
+        singleton="false">
+        <constructor-arg>
+            <value>Hello! 这是itxxzBean! value>
+        </constructor-arg>
+    </bean>
+ 
+</beans>
+```
+
+!> 第二种：工厂方法（Factory Method）
+
+?> 通常由应用程序直接使用new创建新的对象，为了将对象的创建和使用相分离，采用工厂模式,即应用程序将对象的创建及初始化职责交给工厂对象。
+   一般情况下,应用程序有自己的工厂对象来创建bean.如果将应用程序自己的工厂对象交给Spring管理,那么Spring管理的就不是普通的bean,而是工厂Bean。
+   
+以工厂方法中的静态方法为例讲解一下：
+
+```java
+import java.util.Random;
+public class StaticFactoryBean {
+      public static Integer createRandom() {
+           return new Integer(new Random().nextInt());
+       }
+}
+```
+
+建一个config.xm配置文件，将其纳入Spring容器来管理,需要通过factory-method指定静态方法名称
+
+```xml
+<bean id="random"
+class="example.chapter3.StaticFactoryBean" factory-method="createRandom" <!--createRandom方法必须是static的,才能找到 scope="prototype"-->
+/>
+```
+
+测试:
+
+```java
+public static void main(String[] args) {
+      //调用getBean()时,返回随机数.如果没有指定factory-method,会返回StaticFactoryBean的实例,即返回工厂Bean的实例       
+      XmlBeanFactory factory = new XmlBeanFactory(new ClassPathResource("config.xml"));       
+      System.out.println("我是IT学习者创建的实例:"+factory.getBean("random").toString());
+}
+```
+
+!> 第三种：单例模式（Singleton）
+
+?>保证一个类仅有一个实例，并提供一个访问它的全局访问点。 
+`Spring`中的单例模式完成了后半句话，即提供了全局的访问点`BeanFactory`。但没有从构造器级别去控制单例，这是因为`Spring`管理的是任意的java对象。 
+
+核心提示点：`Spring`下默认的`Bean`均为`Singleton`，可以通过`Singleton=“true|false”` 或者 `scope=“?”`来指定
+
+!> 第四种：适配器（Adapter）
+
+?> 将一个类的接口转换成客户希望的另外一个接口。Adapter模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。
+
+在`Spring`的体现： `Spring AOP` 模块对 `BeforeAdvice`、 `AfterAdvice`、 `ThrowsAdvice` 三种通知类型的支持实际上是借助适配器模式来实现的， 这样的好处是使得框架允许用户向框架中加入自己想要支持的任何一种通知类型， 上述三种通知类型是 `Spring AOP` 模块定义的， 它们是 `AOP` 联盟定义的 `Advice` 的子类型。
+在`Spring`中 基本`Adapter`结尾都是适配器。
+
+详细内容可以参考:
+[spring常用模式--------适配器模式](https://www.jianshu.com/p/43bfb4516dd8)
+
+!> 第五种：包装器（Decorator）
+
+?> 动态地给一个对象添加一些额外的职责。就增加功能来说，`Decorator`模式相比生成子类更为灵活。
+
+![summary_2](https://img-blog.csdnimg.cn/20181109164811116.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3psMXpsMnpsMw==,size_16,color_FFFFFF,t_70)
+
+`Spring`中用到的包装器模式在类名上有两种表现：一种是类名中含有`Wrapper`，另一种是类名中含有`Decorator`。基本上都是动态地给一个对象添加一些额外的职责。
+
+!> 第六种：代理（Proxy）
+
+?> 为其他对象提供一种代理以控制对这个对象的访问。
+   从结构上来看和`Decorator`模式类似，但`Proxy`是控制，更像是一种对功能的限制，而`Decorator`是增加职责。
+
+![summary_3](https://img-blog.csdnimg.cn/20181109164833288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3psMXpsMnpsMw==,size_16,color_FFFFFF,t_70)
+
+`Spring`的`Proxy`模式在`AOP`中有体现，比如`JdkDynamicAopProxy`和`Cglib2AopProxy`。 
+
+!> 第七种：观察者（Observer）
+
+?> 定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。
+
+![summary_4](https://img-blog.csdnimg.cn/2018110916485740.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3psMXpsMnpsMw==,size_16,color_FFFFFF,t_70)
+
+`Spring`中`Observer`模式常用的地方是`listener`的实现。如`ApplicationListener`。
+
+
+!> 第八种：策略（Strategy）
+
+?> 定义一系列算法，将每一个算法封装起来，并使它们可互换。策略允许算法独立于使用它的客户端。
+
+![summary_5](https://upload-images.jianshu.io/upload_images/13417101-317fa3140fbf4833.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/639/format/webp)
+
+`Spring`中的体现：`Spring` 中在实例化对象的时候用到 `Strategy` 模式， 在`SimpleInstantiationStrategy` 有使用
+
+详细内容可以参考:
+[Spring常用模式--------策略模式](https://www.jianshu.com/p/3ea48ecd7178)
+
+!> 第九种：模板方法（Template Method）
+
+?> 定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。
+
+![summary_6](https://upload-images.jianshu.io/upload_images/13417101-88000fb5ec0af1b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/404/format/webp)
+
+应用场景： `Spring ORM` 数据模型，工作流
+   
+详细内容可以参考:
+[spring常用模式--------模板模式](https://www.jianshu.com/p/011ca7232a26)
