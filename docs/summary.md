@@ -231,4 +231,60 @@ public static void main(String[] args) {
 应用场景： `Spring ORM` 数据模型，工作流
    
 详细内容可以参考:
+
 [spring常用模式--------模板模式](https://www.jianshu.com/p/011ca7232a26)
+
+### Spring的4种事务特性，5种隔离级别，7种传播行为
+
+**什么是事务:** 
+
+?> 事务逻辑上的一组操作,组成这组操作的各个逻辑单元,要么一起成功,要么一起失败.
+
+**事务特性（4种）:** 
+
+- **原子性 （atomicity）**:强调事务的不可分割. 
+- **一致性 （consistency）**:事务的执行的前后数据的完整性保持一致. 
+- **隔离性 （isolation）**:一个事务执行的过程中,不应该受到其他事务的干扰 
+- **持久性（durability）**:事务一旦结束,数据就持久到数据库
+
+**如果不考虑隔离性引发安全性问题: **
+
+- **脏读**:一个事务读到了另一个事务的未提交的数据 
+- **不可重复读**:一个事务读到了另一个事务已经提交的 update 的数据导致多次查询结果不一致. 
+- **虚幻读**:一个事务读到了另一个事务已经提交的 insert 的数据导致多次查询结果不一致.
+
+**解决读问题: 设置事务隔离级别（5种）**
+ 
+- **DEFAULT**:这是一个PlatfromTransactionManager默认的隔离级别，使用数据库默认的事务隔离级别. 
+- **未提交读（read uncommited）**:脏读，不可重复读，虚读都有可能发生 
+- **已提交读 （read commited）**:避免脏读。但是不可重复读和虚读有可能发生 
+- **可重复读 （repeatable read）**:避免脏读和不可重复读.但是虚读有可能发生. 
+- **串行化的 （serializable）**:避免以上所有读问题. 
+
+
+**事务传播机制（7种）**
+
+?> 当事务方法被另一个事务方法调用时，必须指定事务应该如何传播。例如：方法可能继续在现有事务中运行，也可能开启一个新事务，并在自己的事务中运行。在TransactionDefinition定义中包括了如下几个表示传播行为的常量：
+   
+**支持当前事务的情况：**
+
+- TransactionDefinition.PROPAGATION_REQUIRED： 如果当前存在事务，则加入该事务；如果当前没有事务，则创建一个新的事务。
+- TransactionDefinition.PROPAGATION_SUPPORTS： 如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务的方式继续运行。
+- TransactionDefinition.PROPAGATION_MANDATORY： 如果当前存在事务，则加入该事务；如果当前没有事务，则抛出异常。（mandatory：强制性）
+
+**不支持当前事务的情况：**
+
+- TransactionDefinition.PROPAGATION_REQUIRES_NEW： 创建一个新的事务，如果当前存在事务，则把当前事务挂起。
+- TransactionDefinition.PROPAGATION_NOT_SUPPORTED： 以非事务方式运行，如果当前存在事务，则把当前事务挂起。
+- TransactionDefinition.PROPAGATION_NEVER： 以非事务方式运行，如果当前存在事务，则抛出异常。
+
+**其他情况：**
+
+- TransactionDefinition.PROPAGATION_NESTED： 如果当前存在事务，则创建一个事务作为当前事务的嵌套事务来运行；如果当前没有事务，则该取值等价于TransactionDefinition.PROPAGATION_REQUIRED。
+
+[Spring的事务传播机制实例](https://www.jianshu.com/p/25c8e5a35ece)
+
+### LRU
+
+[浅析LRU(K-V)缓存](https://www.cnblogs.com/wxisme/p/4889846.html)
+
