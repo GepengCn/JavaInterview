@@ -189,7 +189,7 @@ public static void main(String[] args) {
 
 ?> 动态地给一个对象添加一些额外的职责。就增加功能来说，`Decorator`模式相比生成子类更为灵活。
 
-![summary_2](https://img-blog.csdnimg.cn/20181109164811116.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3psMXpsMnpsMw==,size_16,color_FFFFFF,t_70)
+![summary_2](http://img-interview.oss-cn-beijing.aliyuncs.com/20181109164811116.jpg)
 
 `Spring`中用到的包装器模式在类名上有两种表现：一种是类名中含有`Wrapper`，另一种是类名中含有`Decorator`。基本上都是动态地给一个对象添加一些额外的职责。
 
@@ -198,7 +198,7 @@ public static void main(String[] args) {
 ?> 为其他对象提供一种代理以控制对这个对象的访问。
    从结构上来看和`Decorator`模式类似，但`Proxy`是控制，更像是一种对功能的限制，而`Decorator`是增加职责。
 
-![summary_3](https://img-blog.csdnimg.cn/20181109164833288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3psMXpsMnpsMw==,size_16,color_FFFFFF,t_70)
+![summary_3](http://img-interview.oss-cn-beijing.aliyuncs.com/20181109164833288.png)
 
 `Spring`的`Proxy`模式在`AOP`中有体现，比如`JdkDynamicAopProxy`和`Cglib2AopProxy`。 
 
@@ -206,7 +206,7 @@ public static void main(String[] args) {
 
 ?> 定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。
 
-![summary_4](https://img-blog.csdnimg.cn/2018110916485740.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3psMXpsMnpsMw==,size_16,color_FFFFFF,t_70)
+![summary_4](http://img-interview.oss-cn-beijing.aliyuncs.com/2018110916485740.jpg)
 
 `Spring`中`Observer`模式常用的地方是`listener`的实现。如`ApplicationListener`。
 
